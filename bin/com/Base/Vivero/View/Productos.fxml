@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1005.0" stylesheets="@Producto.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Base.Vivero.Controller.ProductoController">
+   <children>
+      <AnchorPane prefHeight="570.0" prefWidth="80.0" style="-fx-background-color: #29434E;">
+         <children>
+            <Pane layoutX="8.0" layoutY="40.0" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Productos" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/esquema-bruto-del-arbol.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="130.0" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="51.0" prefHeight="18.0" prefWidth="64.0" text="Calendario" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/calendario.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="220.0" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="51.0" prefHeight="18.0" prefWidth="46.0" text="Reporte" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/periodico.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="310.0" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="1.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Fotografias" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/camara-fotografica.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: #546E7A;">
+         <children>
+            <TableView fx:id="tbProductos" layoutX="41.0" layoutY="35.0" onMouseClicked="#OnMouseClickedGetProduct" prefHeight="500.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF66;">
+              <columns>
+                <TableColumn fx:id="colNombre" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Nombre" />
+                <TableColumn fx:id="colTipo" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Tipo" />
+                  <TableColumn fx:id="colCondicion" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Condicion Actual" />
+                  <TableColumn fx:id="colFecha" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Fecha de Ingreso" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="570.0" prefWidth="275.0" style="-fx-background-color: #546E7AE6;">
+         <children>
+            <AnchorPane fx:id="paneEliminar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                  <Label layoutX="27.0" layoutY="40.0" text="Selecciona el producto " textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="81.0" text="Nombre:" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="productoEliminar" layoutX="101.0" layoutY="81.0" textFill="#ff0000cd">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonEliminar" layoutX="38.0" layoutY="191.0" mnemonicParsing="false" onAction="#OnActionDelete" prefWidth="200.0" style="-fx-background-color: #003d3380;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+            <AnchorPane fx:id="paneAgregarModificar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                  <TextField fx:id="txtNombre" layoutX="27.0" layoutY="66.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <Label layoutX="28.0" layoutY="249.0" text="Fecha De Ingreso" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                   <Label layoutX="28.0" layoutY="180.0" text="Condicion Actual" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="111.0" text="Tipo" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="42.0" text="Nombre" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ChoiceBox fx:id="boxTipo" layoutX="27.0" layoutY="135.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <DatePicker fx:id="dateIngreso" layoutX="28.0" layoutY="273.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <ChoiceBox fx:id="boxCondicon" layoutX="27.0" layoutY="204.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <Button fx:id="buttonAgregarModificar" layoutX="28.0" layoutY="332.0" mnemonicParsing="false" onAction="#OnActionAddAndUpdate" prefWidth="200.0" style="-fx-background-color: #003d3380;" text="Agregar" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneLogo" layoutY="50.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                  <ImageView fitHeight="244.0" fitWidth="226.0" layoutX="25.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/planta.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="65.0" layoutY="306.0" text="Vivero" textFill="#ffffffcc">
+                     <font>
+                        <Font name="Courier New Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <RadioButton fx:id="radButtonAgregar" layoutX="6.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="radButtonModificar" layoutX="96.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionModificar" text="Modificar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="radButtonEliminar" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+         </children></AnchorPane>
+   </children>
+</HBox>

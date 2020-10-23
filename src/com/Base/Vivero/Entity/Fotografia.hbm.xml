@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.Base.Vivero.Entity">
+	<class name="Fotografia" table="Fotografia">
+   
+   <id name="id"
+            column="idFotografia"
+            type="java.lang.Integer"
+            unsaved-value="null" >
+            <generator class="native">
+            </generator>
+        </id>
+
+<property name="foto" column="foto"/>
+
+   <many-to-one name="Historial" class="Historial" fetch="select">
+            <column name="idHistorial" not-null="true" />
+   </many-to-one>
+            
+    
+  </class>
+</hibernate-mapping>
