@@ -22,7 +22,7 @@
             <column name="idHistorial" not-null="true" />
         </key>
         <one-to-many class="Fotografia"  />
-   </bag>
+   	</bag>
    
   </class>
 </hibernate-mapping>

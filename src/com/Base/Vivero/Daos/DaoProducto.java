@@ -1,14 +1,10 @@
 package com.Base.Vivero.Daos;
-
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Projections;
-import org.hibernate.criterion.Restrictions;
 
 import com.Base.Vivero.Entity.Producto;
 import com.Base.Vivero.Model.ConexionHibernate;
