@@ -1,5 +1,7 @@
 package com.Base.Vivero.Entity;
 
+import com.Base.Vivero.Daos.DaoHistorial;
+
 public class Fotografia {
 
 	private Integer id;
@@ -37,6 +39,7 @@ public class Fotografia {
 	}
 
 	public void setHistorial(Historial historial) {
+		DaoHistorial d = new DaoHistorial();
 		this.historial = historial;
 	}
 

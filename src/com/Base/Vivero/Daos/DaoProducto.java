@@ -15,49 +15,59 @@ import com.Base.Vivero.Model.ConexionHibernate;
 
 
 public class DaoProducto {
-	
-	 private static SessionFactory factory;
-	 
-	public DaoProducto() {
-		ConexionHibernate.generarConexion();
-		factory=ConexionHibernate.getFactory();
-	}
-	
-	public List getProducto() {
+
+    private static SessionFactory factory;
+
+    public DaoProducto() {
+        ConexionHibernate.generarConexion();
+        factory = ConexionHibernate.getFactory();
+    }
+
+    public List getProducto() {
         Session session = factory.openSession();
         Criteria crit = session.createCriteria(Producto.class);
         List productos = crit.list();
         session.close();
         return productos;
     }
-	
-	public void addProducto(Producto prod) {
-		 Session session = factory.openSession();
-	     session.beginTransaction();
 
-	     session.save(prod);
-	     
-	     session.getTransaction().commit();
-	     session.close();
-	}
-	
-	public void deleteProducto(Producto prod) {
-		 Session session = factory.openSession();
-		 session.beginTransaction();
-	     session.delete(prod);
-	     session.getTransaction().commit();
-	     session.close();
-	       
-	}
-	
-	public void updatePoducto(Producto prod) {
-		Session session = factory.openSession();
-		 session.beginTransaction();
-	     session.update(prod);
-	     session.getTransaction().commit();
-	     session.close();
-	}
-	public List getTipos() {
+    public List getProductoName() {
+        Session session = factory.openSession();
+        Criteria crit = session.createCriteria(Producto.class);
+        crit.setProjection(Projections.groupProperty("nombre"));
+        List listaName = crit.list();
+        session.close();
+        return listaName;
+    }
+
+    public void addProducto(Producto prod) {
+        Session session = factory.openSession();
+        session.beginTransaction();
+
+        session.save(prod);
+
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public void deleteProducto(Producto prod) {
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.delete(prod);
+        session.getTransaction().commit();
+        session.close();
+
+    }
+
+    public void updatePoducto(Producto prod) {
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.update(prod);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public List getTipos() {
         Session session = factory.openSession();
         Criteria crit = session.createCriteria(Producto.class);
         crit.setProjection(Projections.groupProperty("tipo"));
@@ -66,8 +76,9 @@ public class DaoProducto {
         return listaTipos;
 
     }
-	
-	public List getCondicon() {
+
+
+    public List getCondicon() {
         Session session = factory.openSession();
         Criteria crit = session.createCriteria(Producto.class);
         crit.setProjection(Projections.groupProperty("condicionActual"));
@@ -76,7 +87,6 @@ public class DaoProducto {
         return listCondicion;
 
     }
-	
-	
-	
+
+
 }

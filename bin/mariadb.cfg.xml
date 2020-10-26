@@ -5,9 +5,9 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jardineria</property>		
-		<property name="hibernate.connection.username">root</property>
-		<property name="hibernate.connection.password">Eduardo93</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/jardineria?serverTimezone=UTC</property>
+		<property name="hibernate.connection.username">newuserFX</property>
+		<property name="hibernate.connection.password">Acoco12345</property>
 		<property name="hibernate.connection.pool_size">10</property>
 		<property name="show_sql">false</property>
 		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
@@ -18,7 +18,7 @@
                 <mapping resource="com/Base/Vivero/Entity/Historial.hbm.xml" />
                 <mapping resource="com/Base/Vivero/Entity/Fotografia.hbm.xml" />
                 <mapping resource="com/Base/Vivero/Entity/Usuario.hbm.xml"/>
-                
+
 
 	</session-factory>
 </hibernate-configuration>

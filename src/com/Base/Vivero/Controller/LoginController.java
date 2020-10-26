@@ -35,7 +35,7 @@ public class LoginController implements Initializable{
     private Button buttonIniciar;
 
     @FXML
-    private PasswordField txtContraseña;
+    private PasswordField txtContraseÃ±a;
     
     private String nameFile;
     
@@ -52,10 +52,10 @@ public class LoginController implements Initializable{
     		ConexionHibernate.setDriver(nameFile);
     		daoUsuario = new DaoUsuario();
     		String usuario = txtUsuario.getText();
-    		String contraseña = txtContraseña.getText();
+    		String contraseÃ±a = txtContraseÃ±a.getText();
     		
-    		if(daoUsuario.authUser(usuario, contraseña)) {
-    			cambiarScene("Productos");
+    		if(daoUsuario.authUser(usuario, contraseÃ±a)) {
+    			cambiarScene("Fotografias");
     		}
     	}
     }
@@ -101,7 +101,7 @@ public class LoginController implements Initializable{
     private void cambiarScene(String fxml) {
     	try {
 			Main.setFXML(fxml);
-		} catch (IOException e) {
+		} catch ( IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
