@@ -11,7 +11,6 @@ public class Producto{
 	private String nombre;
 	private String condicionActual;
 	private Date fechaDeIngreso;
-	
 	private List<Calendario> calendarioList;
 	private List<Historial> historialList;
 	

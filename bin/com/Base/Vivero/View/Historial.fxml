@@ -7,7 +7,6 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -97,8 +96,8 @@
                      </font>
                   </Button>
                   <DatePicker fx:id="dateSearch" layoutX="83.0" layoutY="289.0" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #FFFFFFF2;" />
-                  <ChoiceBox fx:id="boxProducto" layoutX="78.0" layoutY="89.0" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #FFFFFFF2;" />
-                  <Label layoutX="78.0" layoutY="54.0" text="ID productos" textFill="WHITESMOKE">
+                  <ChoiceBox fx:id="boxProducto" layoutX="83.0" layoutY="188.0" prefHeight="25.0" prefWidth="159.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <Label layoutX="83.0" layoutY="151.0" text="Productos" textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
@@ -108,8 +107,12 @@
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="83.0" layoutY="193.0" prefHeight="25.0" prefWidth="159.0" promptText="Al agregar no llenar" />
-                  <Label layoutX="85.0" layoutY="158.0" text="ID historial" textFill="WHITESMOKE">
+                  <Label fx:id="textModificar" layoutX="90.0" layoutY="55.0" text="Historial a modificar " textFill="WHITESMOKE" visible="false">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="prodcutoModificar" layoutX="91.0" layoutY="97.0" prefHeight="19.0" prefWidth="143.0" textFill="#d70000">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
@@ -118,12 +121,12 @@
             </AnchorPane>
             <AnchorPane fx:id="eliminar" layoutY="87.0" prefHeight="483.0" prefWidth="325.0" style="-fx-background-color: Transparent;" visible="false">
                <children>
-                  <Label layoutX="28.0" layoutY="165.0" text="ID producto" textFill="WHITESMOKE">
+                  <Label layoutX="63.0" layoutY="166.0" text="Producto " textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="productoEliminar" layoutX="137.0" layoutY="164.0" prefHeight="22.0" prefWidth="26.0" textFill="#ff0000cd">
+                  <Label fx:id="productoEliminar" layoutX="151.0" layoutY="165.0" prefHeight="22.0" prefWidth="117.0" textFill="#ff0000cd">
                      <font>
                         <Font name="Segoe UI Bold Italic" size="17.0" />
                      </font>
@@ -138,7 +141,11 @@
                         <Font size="13.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="IdEliminar" layoutX="130.0" layoutY="162.0" />
+                  <Label fx:id="idEliminar" layoutX="144.0" layoutY="167.0" prefHeight="19.0" prefWidth="117.0" textFill="#eb0000">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <RadioButton fx:id="radButtonAgregar" layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" textFill="WHITESMOKE">

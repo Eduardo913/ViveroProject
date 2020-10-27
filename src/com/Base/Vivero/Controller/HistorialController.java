@@ -17,13 +17,14 @@ import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Instant;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class HistorialController implements Initializable {
 
-    private DaoProducto daoProducto;
 
     private DaoHistorial daoHistorial;
 
@@ -31,8 +32,16 @@ public class HistorialController implements Initializable {
 
     private Producto seleccion;
 
+
     @FXML
-    private TextField IdEliminar;
+    private Label textModificar;
+
+    @FXML
+    private Label prodcutoModificar;
+
+
+    @FXML
+    private Label idEliminar;
 
     @FXML
     private RadioButton radButtonAgregar;
@@ -67,52 +76,65 @@ public class HistorialController implements Initializable {
     private DatePicker dateSearch;
 
     @FXML
-    private ChoiceBox<String> boxProducto;
+    private ChoiceBox<Producto> boxProducto;
 
-    @FXML
+    @FXML //listo
     void OMCgoFotografias(MouseEvent event) {
         cambiarScene("Fotografias");
     }
 
-    @FXML
+    @FXML //liato
     void OMCgoProducts(MouseEvent event) {
         cambiarScene("Productos");
     }
 
-    @FXML
+    @FXML //listo
     void OMNgoReporte(MouseEvent event) {
         cambiarScene("Historial");
     }
 
-    @FXML
+    @FXML //listo
     void ONMgoCalendar(MouseEvent event) {
         cambiarScene("Calendario");
     }
 
     @FXML
-    void OnActionDelete(ActionEvent event) {
-
+    void OMCProductos(MouseEvent event) {
+        cambiarScene("Productos");
     }
+
+    @FXML
+    void OnActionDelete(ActionEvent event) {
+        daoHistorial.deleteHistorial(h);
+        llenarTabla();
+
+    }//listo el borrar historial
+
+    @FXML
+    void OnMouseClickedGetProduct(MouseEvent event) {
+        h = tbProductos.getSelectionModel().getSelectedItem();
+        idEliminar.setText(h.getProducto().getNombre());
+        prodcutoModificar.setText(h.getProducto().getNombre());
+        System.out.println(h);
+
+    } //listo la obtencion de los productos
 
     @FXML
     void OnActionAddAndUpdate(ActionEvent event) {
         if (radButtonModificar.isSelected()) {
-
+            System.out.println("modificar");
         } else {
+            Historial hA = new Historial();
             ZoneId defaultZoneId = ZoneId.systemDefault();
-            h.setFecha(Date.from(dateSearch.getValue().atStartOfDay(defaultZoneId).toInstant()));
+            System.out.println("agregar");
+            hA.setId(1);
+            Date fecha =  Date.from(dateSearch.getValue().atStartOfDay(defaultZoneId).toInstant());
+            hA.setFecha(fecha);
+            hA.setProducto(boxProducto.getValue());
+            daoHistorial.addHistorial(hA);
+            llenarTabla();
         }
 
-    }
-
-    @FXML
-    void OnMouseClickedGetProduct(MouseEvent event) {
-
-    }
-
-    @FXML
-    void OMCProductos(MouseEvent event) {
-        cambiarScene("Productos");
     }
 
     @FXML
@@ -126,7 +148,6 @@ public class HistorialController implements Initializable {
     @FXML
     void OnActionEliminar(ActionEvent event) {
         cleanSelect(2);
-
     }
 
 
@@ -142,15 +163,25 @@ public class HistorialController implements Initializable {
         productos = FXCollections.observableArrayList();
         this.colProducto.setCellValueFactory(new PropertyValueFactory("producto"));
         this.colFecha.setCellValueFactory(new PropertyValueFactory("fecha"));
-//        boxProducto.getItems().addAll(daoProducto.getProductoName());
         tbProductos.setItems(productos);
         llenarTabla();
+        llenarbuton();
     }
 
     private void llenarTabla() {
+
         productos.clear();
         productos.addAll(daoHistorial.getHistorial());
 
+
+
+    }
+    public void llenarbuton(){
+        boxProducto.getItems().clear();
+        List<Historial> h = daoHistorial.getHistorial();
+        for (Historial hx : h ) {
+            boxProducto.getItems().add(hx.getProducto());
+        }
     }
 
     private void cambiarScene(String fxml) {
@@ -165,18 +196,27 @@ public class HistorialController implements Initializable {
     private void cleanSelect(int i) {
         switch (i) {
             case 1:
+
+                textModificar.setVisible(false);
+                prodcutoModificar.setVisible(false);
                 radButtonEliminar.setSelected(false);
                 radButtonModificar.setSelected(false);
                 eliminar.setVisible(false);
                 agregar.setVisible(true);
                 break;
             case 2:
+
+                textModificar.setVisible(false);
+                prodcutoModificar.setVisible(false);
                 radButtonModificar.setSelected(false);
                 radButtonAgregar.setSelected(false);
                 eliminar.setVisible(true);
                 agregar.setVisible(false);
                 break;
             case 3:
+
+                textModificar.setVisible(true);
+                prodcutoModificar.setVisible(true);
                 radButtonEliminar.setSelected(false);
                 radButtonAgregar.setSelected(false);
                 eliminar.setVisible(false);
@@ -187,6 +227,4 @@ public class HistorialController implements Initializable {
 
     }
 
-    private void cleanCamp() {
-    }
 }

@@ -11,7 +11,7 @@
             </generator>
         </id>
 
-<property name="fecha" column="Fecha"/>
+<property name="fecha" column="Fecha" type="java.util.Date"/>
 
     <many-to-one name="Producto" class="Producto" fetch="select">
             <column name="idProducto" not-null="true" />

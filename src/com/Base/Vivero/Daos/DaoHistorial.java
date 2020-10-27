@@ -24,20 +24,25 @@ public class DaoHistorial {
 
         Session session = factory.openSession();
         Criteria crit = session.createCriteria(Historial.class);
-        List Historial = crit.list();
+        List historial = crit.list();
+        System.out.println(historial);
         session.close();
-        System.out.println(Historial);
-        return Historial;
+        return historial;
     }
 
-    public boolean deleteHistorial(){
+    public boolean deleteHistorial(Historial historial) {
+        System.out.println(historial);
         Session session = factory.openSession();
         session.beginTransaction();
-        return true;
+        session.delete(historial);
+        session.getTransaction().commit();
+        session.close();
+        return false;
     }
 
     public void addHistorial(Historial hist) {
         Session session = factory.openSession();
+
         session.beginTransaction();
 
         session.save(hist);
