@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.fxml.FXMLLoader;
 
 
@@ -21,6 +22,8 @@ public class Main extends Application {
 			scene = new Scene(loadFXML("Login"));
 			primaryStage.centerOnScreen();
 			primaryStage.setScene(scene);
+			primaryStage.getIcons().add(new Image("Resources/logo.png"));
+			primaryStage.setTitle("Vivero");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -31,6 +34,7 @@ public class Main extends Application {
         scene.setRoot(loadFXML(fxml));
         primaryStage.sizeToScene();
         primaryStage.centerOnScreen();
+        primaryStage.setTitle("Vivero - "+fxml);
     }
 
 	private static Parent loadFXML(String fxml) throws IOException {

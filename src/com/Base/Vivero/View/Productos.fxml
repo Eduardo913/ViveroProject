@@ -19,7 +19,7 @@
    <children>
       <AnchorPane prefHeight="570.0" prefWidth="80.0" style="-fx-background-color: #29434E;">
          <children>
-            <Pane layoutX="8.0" layoutY="40.0" prefHeight="65.0" prefWidth="65.0">
+            <Pane layoutX="8.0" layoutY="40.0" onMouseClicked="#OnMouseClickedVIstaProducto" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <Label layoutX="3.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Productos" textFill="WHITESMOKE">
                      <font>
@@ -33,7 +33,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="8.0" layoutY="130.0" prefHeight="65.0" prefWidth="65.0">
+            <Pane layoutX="8.0" layoutY="130.0" onMouseClicked="#OnMouseClickedVIstaCalendario" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <Label layoutX="3.0" layoutY="51.0" prefHeight="18.0" prefWidth="64.0" text="Calendario" textFill="WHITESMOKE">
                      <font>
@@ -47,7 +47,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="8.0" layoutY="220.0" prefHeight="65.0" prefWidth="65.0">
+            <Pane layoutX="8.0" layoutY="220.0" onMouseClicked="#OnMouseClickedVIstaReporte" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <Label layoutX="10.0" layoutY="51.0" prefHeight="18.0" prefWidth="46.0" text="Reporte" textFill="WHITESMOKE">
                      <font>
@@ -61,7 +61,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="8.0" layoutY="310.0" prefHeight="65.0" prefWidth="65.0">
+            <Pane layoutX="8.0" layoutY="310.0" onMouseClicked="#OnMouseClickedVIstaFotografia" prefHeight="65.0" prefWidth="65.0">
                <children>
                   <Label layoutX="1.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Fotografias" textFill="WHITESMOKE">
                      <font>

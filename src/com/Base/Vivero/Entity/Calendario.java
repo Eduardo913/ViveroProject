@@ -39,7 +39,7 @@ public class Calendario {
 
 	@Override
 	public String toString() {
-		return "Calendario [id=" + id + ", producto=" + producto + ", fecha=" + fecha + "]";
+		return producto.toString();
 	}
 	
 	

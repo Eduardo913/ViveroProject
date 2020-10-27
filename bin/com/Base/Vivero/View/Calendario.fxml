@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1005.0" stylesheets="@Calendario.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Base.Vivero.Controller.CalendarioController">
+   <children>
+      <AnchorPane prefHeight="570.0" prefWidth="80.0" style="-fx-background-color: #29434E;">
+         <children>
+            <Pane layoutX="8.0" layoutY="40.0" onMouseClicked="#OnMouseClickedVIstaProducto" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Productos" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/esquema-bruto-del-arbol.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="130.0" onMouseClicked="#OnMouseClickedVIstaCalendario" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="3.0" layoutY="51.0" prefHeight="18.0" prefWidth="64.0" text="Calendario" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/calendario.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="220.0" onMouseClicked="#OnMouseClickedVIstaReporte" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="10.0" layoutY="51.0" prefHeight="18.0" prefWidth="46.0" text="Reporte" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/periodico.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane layoutX="8.0" layoutY="310.0" onMouseClicked="#OnMouseClickedVIstaFotografia" prefHeight="65.0" prefWidth="65.0">
+               <children>
+                  <Label layoutX="1.0" layoutY="48.0" prefHeight="18.0" prefWidth="64.0" text="Fotografias" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="13.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/camara-fotografica.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: #546E7A;">
+         <children>
+            <VBox layoutX="35.0" layoutY="35.0" prefHeight="500.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF66;">
+               <children>
+                  <AnchorPane prefHeight="50.0" prefWidth="580.0">
+                     <children>
+                        <Label fx:id="LabelMes" layoutX="270.0" layoutY="14.0" text="MES">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="buttonArrowRigth" fitHeight="30.0" fitWidth="30.0" layoutX="536.0" layoutY="11.0" onMouseClicked="#OnMouseclickesDerecha" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../Resources/flecha-correcta.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="buttonArrowLeft" fitHeight="30.0" fitWidth="30.0" layoutX="14.0" layoutY="10.0" onMouseClicked="#OnMouseclickesIzquierda" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                           <image>
+                              <Image url="@../../../../Resources/flecha-correcta.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <GridPane prefHeight="40.0" prefWidth="580.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Domingo" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Lunes" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Martes" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Miercoles" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Jueves" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Viernes" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                        <Label text="Sabado" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font name="Segoe UI Bold" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+                  <GridPane fx:id="GridPaneFechas" onMouseClicked="#ClickedGridPane" prefHeight="410.0" prefWidth="580.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="83.0" minWidth="83.0" prefWidth="83.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints maxHeight="82.0" minHeight="82.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="82.0" minHeight="82.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="82.0" minHeight="82.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="82.0" minHeight="82.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="82.0" minHeight="82.0" prefHeight="82.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="570.0" prefWidth="275.0" style="-fx-background-color: #546E7AE6;">
+         <children>
+            <AnchorPane fx:id="paneEliminar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;">
+               <children>
+                  <Label layoutX="27.0" layoutY="40.0" text="Selecciona el Dia" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="260.0" text="Nombre:" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="calendarioEliminar" layoutX="104.0" layoutY="259.0" prefHeight="22.0" prefWidth="142.0" textFill="#ff0000cd">
+                     <font>
+                        <Font name="Segoe UI Bold Italic" size="17.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonEliminar" layoutX="48.0" layoutY="308.0" mnemonicParsing="false" onAction="#OnActionDelete" prefWidth="200.0" style="-fx-background-color: #003d3380;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <ListView fx:id="listViewProductoRiegoEliminar" layoutX="27.0" layoutY="81.0" onMouseClicked="#OnMouseClickedListRiego" prefHeight="147.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF66;" />
+               </children></AnchorPane>
+            <AnchorPane fx:id="paneModificar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                  <Label layoutX="27.0" layoutY="40.0" text="Selecciona el Dia" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <ListView fx:id="listViewProductoRiegoModificar" layoutX="27.0" layoutY="81.0" onMouseClicked="#OnMouseClickedListRiego" prefHeight="147.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF66;" />
+                  <Label layoutX="27.0" layoutY="260.0" text="Nombre:" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneAgregar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                   <Label layoutX="28.0" layoutY="180.0" text="Repeticion por semana" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="111.0" text="Fecha de Riego" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="27.0" layoutY="42.0" text="Producto" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="dateRiego" layoutX="27.0" layoutY="135.0" prefWidth="200.0" style="-fx-background-color: #FFFFFFF2;" />
+                  <Button fx:id="buttonAgregar" layoutX="27.0" layoutY="260.0" mnemonicParsing="false" onAction="#OnActionAdd" prefWidth="200.0" style="-fx-background-color: #003d3380;" text="Agregar" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="13.0" />
+                     </font>
+                  </Button>
+                  <ChoiceBox fx:id="boxProducto" layoutX="27.0" layoutY="66.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+                  <CheckBox layoutX="27.0" layoutY="214.0" mnemonicParsing="false" text="Activar" textFill="#f5f5f5cd">
+                     <font>
+                        <Font name="Segoe UI Bold" size="15.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="paneLogo" layoutY="50.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+               <children>
+                  <ImageView fitHeight="244.0" fitWidth="226.0" layoutX="25.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Resources/planta.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="65.0" layoutY="306.0" text="Vivero" textFill="#ffffffcc">
+                     <font>
+                        <Font name="Courier New Bold" size="40.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <RadioButton fx:id="radButtonAgregar" layoutX="6.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="radButtonModificar" layoutX="96.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionModificar" text="Modificar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+            <RadioButton fx:id="radButtonEliminar" layoutX="194.0" layoutY="15.0" mnemonicParsing="false" onAction="#OnActionEliminar" text="Eliminar" textFill="WHITESMOKE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></RadioButton>
+         </children></AnchorPane>
+   </children>
+</HBox>

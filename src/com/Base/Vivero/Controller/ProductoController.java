@@ -1,11 +1,13 @@
 package com.Base.Vivero.Controller;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.ZoneId;
 import java.util.Date;
 
 import java.util.ResourceBundle;
 
+import com.Base.Vivero.Main;
 import com.Base.Vivero.Daos.DaoProducto;
 import com.Base.Vivero.Entity.Producto;
 
@@ -226,5 +228,34 @@ public class ProductoController implements Initializable{
 				break;
 		}
 	}
+	
+	  @FXML
+	    void OnMouseClickedVIstaCalendario(MouseEvent event) {
+		  cambiarScene("Calendario");
+	    }
+
+	   @FXML
+	   void OnMouseClickedVIstaFotografia(MouseEvent event) {
+		   cambiarScene("");
+	   }
+
+	   @FXML
+	   void OnMouseClickedVIstaProducto(MouseEvent event) {
+		   cambiarScene("Productos");
+	   }
+
+	   @FXML
+	   void OnMouseClickedVIstaReporte(MouseEvent event) {
+		   cambiarScene("");
+	   }
+	   
+	   private void cambiarScene(String fxml) {
+	    	try {
+				Main.setFXML(fxml);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }	
 
 }
