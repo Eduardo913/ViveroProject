@@ -90,6 +90,12 @@ public class CalendarioController implements Initializable{
     private ListView<Calendario> listViewProductoRiegoEliminar;
     
     @FXML
+    private ChoiceBox<Producto> boxProductoMod;
+
+    @FXML
+    private DatePicker DateFechaRiegoMod;
+    
+    @FXML
     private AnchorPane paneModificar;
     
     private DaoCalendario daoCalendario;
@@ -128,7 +134,7 @@ public class CalendarioController implements Initializable{
         paneModificar.setVisible(false);
         
         boxProducto.getItems().addAll(daoProducto.getProducto());
-        
+        boxProductoMod.getItems().addAll(daoProducto.getProducto());
         defaultZoneId = ZoneId.systemDefault();
 		
 	}
@@ -164,7 +170,16 @@ public class CalendarioController implements Initializable{
     	cleanCamp();
     }
     
-    
+    @FXML
+    void OnMouseClickedRemplazar(MouseEvent event) {
+    	if(calendario != null) {
+    		calendario.setProducto(boxProductoMod.getValue());
+    		calendario.setFecha(Date.from(DateFechaRiegoMod.getValue().atStartOfDay(defaultZoneId).toInstant()));
+    		daoCalendario.updateCalendario(calendario);
+    		cleanCamp();
+        	setCalendar();
+    	}
+    }
     
     
     // eliminar feha de calendario
@@ -226,7 +241,10 @@ public class CalendarioController implements Initializable{
     		calendario = listViewProductoRiegoEliminar.getSelectionModel().getSelectedItem();
     		calendarioEliminar.setText(calendario.toString());
     	}else {
-    		
+    		calendario = listViewProductoRiegoModificar.getSelectionModel().getSelectedItem();
+    		Producto producto = calendario.getProducto();
+    		boxProductoMod.setValue(producto);
+    		DateFechaRiegoMod.setValue(calendario.getFecha().toInstant().atZone(defaultZoneId).toLocalDate());
     	}
     }
     
@@ -417,6 +435,9 @@ public class CalendarioController implements Initializable{
 		listViewProductoRiegoEliminar.getItems().clear();
 		listViewProductoRiegoModificar.getItems().clear();
 		calendarioEliminar.setText(null);
+		boxProductoMod.getSelectionModel().clearSelection();
+		DateFechaRiegoMod.setValue(null);
+		calendario = null;
 		//productoEliminar.setText(null);
 	}
    

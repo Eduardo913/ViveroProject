@@ -177,7 +177,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="570.0" prefWidth="275.0" style="-fx-background-color: #546E7AE6;">
          <children>
-            <AnchorPane fx:id="paneEliminar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;">
+            <AnchorPane fx:id="paneEliminar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
                <children>
                   <Label layoutX="27.0" layoutY="40.0" text="Selecciona el Dia" textFill="WHITESMOKE">
                      <font>
@@ -201,7 +201,7 @@
                   </Button>
                   <ListView fx:id="listViewProductoRiegoEliminar" layoutX="27.0" layoutY="81.0" onMouseClicked="#OnMouseClickedListRiego" prefHeight="147.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF66;" />
                </children></AnchorPane>
-            <AnchorPane fx:id="paneModificar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
+            <AnchorPane fx:id="paneModificar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;">
                <children>
                   <Label layoutX="27.0" layoutY="40.0" text="Selecciona el Dia" textFill="WHITESMOKE">
                      <font>
@@ -209,11 +209,23 @@
                      </font>
                   </Label>
                   <ListView fx:id="listViewProductoRiegoModificar" layoutX="27.0" layoutY="81.0" onMouseClicked="#OnMouseClickedListRiego" prefHeight="147.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF66;" />
-                  <Label layoutX="27.0" layoutY="260.0" text="Nombre:" textFill="WHITESMOKE">
+                  <Label layoutX="27.0" layoutY="260.0" text="Producto" textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
+                  <ChoiceBox fx:id="boxProductoMod" layoutX="27.0" layoutY="289.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
+                  <Label layoutX="27.0" layoutY="329.0" text="Fecha de Riego" textFill="WHITESMOKE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <DatePicker fx:id="DateFechaRiegoMod" layoutX="27.0" layoutY="358.0" prefHeight="25.0" prefWidth="200.0" />
+                  <Button layoutX="27.0" layoutY="417.0" mnemonicParsing="false" onMouseClicked="#OnMouseClickedRemplazar" prefHeight="27.0" prefWidth="200.0" style="-fx-background-color: #003d3380;" text="Remplazar" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Bold" size="13.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="paneAgregar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
