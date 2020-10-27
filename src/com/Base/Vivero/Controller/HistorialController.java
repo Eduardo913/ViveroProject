@@ -78,22 +78,26 @@ public class HistorialController implements Initializable {
     @FXML
     private ChoiceBox<Producto> boxProducto;
 
-    @FXML //listo
+    @FXML
+        //listo
     void OMCgoFotografias(MouseEvent event) {
         cambiarScene("Fotografias");
     }
 
-    @FXML //liato
+    @FXML
+        //liato
     void OMCgoProducts(MouseEvent event) {
         cambiarScene("Productos");
     }
 
-    @FXML //listo
+    @FXML
+        //listo
     void OMNgoReporte(MouseEvent event) {
         cambiarScene("Historial");
     }
 
-    @FXML //listo
+    @FXML
+        //listo
     void ONMgoCalendar(MouseEvent event) {
         cambiarScene("Calendario");
     }
@@ -121,18 +125,27 @@ public class HistorialController implements Initializable {
 
     @FXML
     void OnActionAddAndUpdate(ActionEvent event) {
+        Date fecha;
+        ZoneId defaultZoneId = ZoneId.systemDefault();
         if (radButtonModificar.isSelected()) {
             System.out.println("modificar");
+            fecha = Date.from(dateSearch.getValue().atStartOfDay(defaultZoneId).toInstant());
+            h.setProducto(boxProducto.getValue());
+            h.setFecha(fecha);
+            daoHistorial.modifiedHistorial(h);
+            llenarTabla();
+            llenarbuton();
         } else {
             Historial hA = new Historial();
-            ZoneId defaultZoneId = ZoneId.systemDefault();
+
             System.out.println("agregar");
             hA.setId(1);
-            Date fecha =  Date.from(dateSearch.getValue().atStartOfDay(defaultZoneId).toInstant());
+            fecha = Date.from(dateSearch.getValue().atStartOfDay(defaultZoneId).toInstant());
             hA.setFecha(fecha);
             hA.setProducto(boxProducto.getValue());
             daoHistorial.addHistorial(hA);
             llenarTabla();
+            llenarbuton();
         }
 
     }
@@ -174,12 +187,13 @@ public class HistorialController implements Initializable {
         productos.addAll(daoHistorial.getHistorial());
 
 
-
     }
-    public void llenarbuton(){
+
+    public void llenarbuton() {
         boxProducto.getItems().clear();
+        dateSearch.getEditor().clear();
         List<Historial> h = daoHistorial.getHistorial();
-        for (Historial hx : h ) {
+        for (Historial hx : h) {
             boxProducto.getItems().add(hx.getProducto());
         }
     }

@@ -51,4 +51,12 @@ public class DaoHistorial {
         session.close();
     }
 
+    public void  modifiedHistorial(Historial historial){
+        Session session = factory.openSession();
+        session.beginTransaction();
+        session.update(historial);
+        session.getTransaction().commit();
+        session.close();
+    }
+
 }
