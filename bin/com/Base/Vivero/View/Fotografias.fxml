@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TableColumn?>
@@ -77,10 +78,10 @@
       </AnchorPane>
       <AnchorPane prefHeight="570.0" prefWidth="650.0" style="-fx-background-color: #546E7A;" stylesheets="@Historial.css">
          <children>
-            <TableView fx:id="tbProductos" layoutX="127.0" layoutY="35.0" onMouseClicked="#OnMouseClickedGetProduct" prefHeight="500.0" prefWidth="291.0" style="-fx-background-color: #FFFFFF66;">
+            <TableView fx:id="tbFotos" layoutX="127.0" layoutY="35.0" onMouseClicked="#OnMouseClickedGetProduct" prefHeight="500.0" prefWidth="291.0" style="-fx-background-color: #FFFFFF66;">
                <columns>
-                  <TableColumn fx:id="colProducto" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="ID historial" />
-                  <TableColumn fx:id="colFecha" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Imagen" />
+                  <TableColumn fx:id="colProducto" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Producto" />
+                  <TableColumn fx:id="colIMG" maxWidth="145.0" minWidth="145.0" prefWidth="145.0" style="-fx-background-color: #546E7AA6;" text="Imagen" />
                </columns>
             </TableView>
          </children>
@@ -94,29 +95,34 @@
                         <Font name="Segoe UI Bold" size="13.0" />
                      </font>
                   </Button>
-                  <Label layoutX="78.0" layoutY="54.0" text="ID historial" textFill="WHITESMOKE">
+                  <Label layoutX="83.0" layoutY="255.0" text="selecionar producto" textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="83.0" layoutY="255.0" text="Fotografia" textFill="WHITESMOKE">
+                  <Label layoutX="84.0" layoutY="138.0" text="selecionar fotografia" textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label layoutX="85.0" layoutY="158.0" text="ID fotografia" textFill="WHITESMOKE">
+                  <Button fx:id="agregarURl" layoutX="98.0" layoutY="169.0" mnemonicParsing="false" onAction="#OMCagregarUrlfoto" prefHeight="25.0" prefWidth="118.0" text="Buscar" />
+                  <ChoiceBox fx:id="productoN" layoutX="83.0" layoutY="299.0" prefWidth="150.0" />
+                  <Label fx:id="modT" layoutX="84.0" layoutY="77.0" text="modificar" textFill="WHITESMOKE" visible="false">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="urlFotografia" layoutX="83.0" layoutY="295.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField fx:id="IdHistoriall" layoutX="78.0" layoutY="106.0" prefHeight="25.0" prefWidth="174.0" />
-                  <TextField fx:id="idFotografia" layoutX="83.0" layoutY="206.0" prefHeight="25.0" prefWidth="174.0" />
+                  <Label fx:id="modProd" layoutX="167.0" layoutY="77.0" textFill="#e10404" visible="false">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="urlPath" editable="false" layoutX="22.0" layoutY="218.0" prefHeight="25.0" prefWidth="281.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="eliminar" layoutY="87.0" prefHeight="483.0" prefWidth="325.0" style="-fx-background-color: Transparent;" visible="false">
                <children>
-                  <Label layoutX="28.0" layoutY="165.0" prefHeight="19.0" prefWidth="100.0" text="ID fotografia" textFill="WHITESMOKE">
+                  <Label layoutX="28.0" layoutY="165.0" prefHeight="19.0" prefWidth="100.0" text="eliminar" textFill="WHITESMOKE">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
@@ -132,7 +138,11 @@
                      </font>
                   </Button>
                   <TextField fx:id="IdEliminar" layoutX="130.0" layoutY="162.0" visible="false" />
-                  <TextField fx:id="idFotografiaEliminar" layoutX="143.0" layoutY="162.0" />
+                  <Label fx:id="idFotografiaEliminar" layoutX="155.0" layoutY="165.0" prefHeight="19.0" prefWidth="100.0" textFill="#f50000">
+                     <font>
+                        <Font name="Segoe UI Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <RadioButton fx:id="radButtonAgregar" layoutX="18.0" layoutY="18.0" mnemonicParsing="false" onAction="#OnActionAgregar" text="Agregar" textFill="WHITESMOKE">

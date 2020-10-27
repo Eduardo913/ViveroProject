@@ -184,7 +184,8 @@ public class HistorialController implements Initializable {
     private void llenarTabla() {
 
         productos.clear();
-        productos.addAll(daoHistorial.getHistorial());
+        productos.addAll(
+                daoHistorial.getHistorial());
 
 
     }
