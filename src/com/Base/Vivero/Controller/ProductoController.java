@@ -246,7 +246,7 @@ public class ProductoController implements Initializable{
 
 	   @FXML
 	   void OnMouseClickedVIstaReporte(MouseEvent event) {
-		   cambiarScene("");
+		   cambiarScene("Historial");
 	   }
 	   
 	   private void cambiarScene(String fxml) {

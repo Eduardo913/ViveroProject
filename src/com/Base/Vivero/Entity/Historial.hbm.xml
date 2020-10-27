@@ -17,7 +17,7 @@
             <column name="idProducto" not-null="true" />
     </many-to-one>
      
-      <bag name="fotografiaList" table="Fotografia" inverse="true" lazy="true" fetch="select">
+      <bag name="fotografiaList" table="Fotografia" inverse="true" lazy="true" fetch="select" cascade = "delete">
         <key>
             <column name="idHistorial" not-null="true" />
         </key>

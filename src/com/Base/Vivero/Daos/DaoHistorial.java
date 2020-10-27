@@ -7,6 +7,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import com.Base.Vivero.Entity.Historial;
+import com.Base.Vivero.Entity.Producto;
 import com.Base.Vivero.Model.ConexionHibernate;
 
 public class DaoHistorial {
@@ -31,6 +32,23 @@ public class DaoHistorial {
 
 	     session.save(hist);
 	     
+	     session.getTransaction().commit();
+	     session.close();
+	}
+	
+	public void deleteHistorial(Historial hist) {
+		 Session session = factory.openSession();
+		 session.beginTransaction();
+	     session.delete(hist);
+	     session.getTransaction().commit();
+	     session.close();
+	       
+	}
+	
+	public void updateHistorial(Historial hist) {
+		Session session = factory.openSession();
+		 session.beginTransaction();
+	     session.update(hist);
 	     session.getTransaction().commit();
 	     session.close();
 	}

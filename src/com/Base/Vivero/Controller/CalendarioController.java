@@ -238,13 +238,18 @@ public class CalendarioController implements Initializable{
     @FXML
     void OnMouseClickedListRiego(MouseEvent event) {
     	if(radButtonEliminar.isSelected()) {
-    		calendario = listViewProductoRiegoEliminar.getSelectionModel().getSelectedItem();
-    		calendarioEliminar.setText(calendario.toString());
+    		if(listViewProductoRiegoEliminar.getSelectionModel().getSelectedItem() != null) {
+    			calendario = listViewProductoRiegoEliminar.getSelectionModel().getSelectedItem();
+        		calendarioEliminar.setText(calendario.toString());
+    		}
     	}else {
-    		calendario = listViewProductoRiegoModificar.getSelectionModel().getSelectedItem();
-    		Producto producto = calendario.getProducto();
-    		boxProductoMod.setValue(producto);
-    		DateFechaRiegoMod.setValue(calendario.getFecha().toInstant().atZone(defaultZoneId).toLocalDate());
+    		if(listViewProductoRiegoModificar.getSelectionModel().getSelectedItem() != null) {
+	    		calendario = listViewProductoRiegoModificar.getSelectionModel().getSelectedItem();
+	    		Producto producto = calendario.getProducto();
+	    		boxProductoMod.setValue(producto);
+	    		DateFechaRiegoMod.setValue(calendario.getFecha().toInstant().atZone(defaultZoneId).toLocalDate());
+    		}
+    		
     	}
     }
     
@@ -376,7 +381,7 @@ public class CalendarioController implements Initializable{
 
    @FXML
    void OnMouseClickedVIstaReporte(MouseEvent event) {
-	   cambiarScene("");
+	   cambiarScene("Historial");
    }
    
    // metodo para cambiar de scene

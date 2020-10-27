@@ -1,0 +1,41 @@
+
+.table-view .column-header-background .label{
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 13;
+
+}
+
+.table-view .column-header-background{
+    -fx-background-color:  rgba(84, 110, 122,0.5);
+
+}
+
+.table-view .column-header{
+    -fx-background-color:  rgba(84, 110, 122,0.5);
+
+}
+
+
+.table-view .column {
+   -fx-text-fill: white;
+
+}
+
+.table-view .scroll-bar:horizontal ,
+.table-view .scroll-bar:vertical {
+	-fx-background-color: transparent;
+	-fx-border-color:derive(gray,80%);
+
+	-fx-background-radius: 2em;
+	-fx-border-radius:2em;
+}
+
+
+.table-column {
+
+    -fx-padding: 0.5em;
+    -fx-border-color: transparent -fx-box-border transparent transparent;
+    -fx-font: "Arial" bod;
+    -fx-text-fill: white;
+}

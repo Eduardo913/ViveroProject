@@ -17,14 +17,14 @@
     <property name="fechaDeIngreso" column="FechaDeIngreso"  type="java.util.Date"/>
     <property name="condicionActual" column="CondicionActual"  type="java.lang.String"/>
    
-   <bag name="calendarioList" table="Calendario" inverse="true" lazy="true" fetch="select">
+   <bag name="calendarioList" table="Calendario" inverse="true" lazy="true" fetch="select" cascade = "delete">
         <key>
             <column name="idProducto" not-null="true" />
         </key>
         <one-to-many class="Calendario"/>
     </bag>
     
-   <bag name="historialList" table="Historial" inverse="true" lazy="true" fetch="select">
+   <bag name="historialList" table="Historial" inverse="true" lazy="true" fetch="select" cascade = "delete">
         <key>
             <column name="idProducto" not-null="true" />
         </key>
