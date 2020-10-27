@@ -26,6 +26,8 @@ public class DaoHistorial {
 	       Session session = factory.openSession();
 	       Criteria crit = session.createCriteria(Historial.class);
 	       List Historial = crit.list();
+	       crit.list().toString();
+	       session.close();
 	       return Historial;
 	}
 	

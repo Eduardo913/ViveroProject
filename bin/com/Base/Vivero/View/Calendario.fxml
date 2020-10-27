@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1005.0" stylesheets="@Calendario.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Base.Vivero.Controller.CalendarioController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="570.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.Base.Vivero.Controller.CalendarioController">
    <children>
       <AnchorPane prefHeight="570.0" prefWidth="80.0" style="-fx-background-color: #1f1a31;">
          <children>
@@ -83,7 +83,7 @@
          <children>
             <VBox layoutX="35.0" layoutY="35.0" prefHeight="500.0" prefWidth="580.0" style="-fx-background-color: #FFFFFF66;">
                <children>
-                  <AnchorPane prefHeight="50.0" prefWidth="580.0">
+                  <AnchorPane prefHeight="50.0" prefWidth="580.0" styleClass="Calendario.css">
                      <children>
                         <Label fx:id="LabelMes" layoutX="270.0" layoutY="14.0" text="MES" textFill="WHITESMOKE">
                            <font>
@@ -230,7 +230,7 @@
             </AnchorPane>
             <AnchorPane fx:id="paneAgregar" layoutY="44.0" prefHeight="520.0" prefWidth="275.0" style="-fx-background-color: Transparent;" visible="false">
                <children>
-                   <Label layoutX="28.0" layoutY="180.0" text="Repeticion por semana" textFill="WHITESMOKE">
+                   <Label disable="true" layoutX="28.0" layoutY="180.0" text="Repeticion por semana" textFill="WHITESMOKE" visible="false">
                      <font>
                         <Font name="Segoe UI Bold" size="16.0" />
                      </font>
@@ -252,7 +252,7 @@
                      </font>
                   </Button>
                   <ChoiceBox fx:id="boxProducto" layoutX="27.0" layoutY="66.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" />
-                  <CheckBox layoutX="27.0" layoutY="214.0" mnemonicParsing="false" text="Activar" textFill="#f5f5f5cd">
+                  <CheckBox disable="true" layoutX="27.0" layoutY="214.0" mnemonicParsing="false" text="Activar" textFill="#f5f5f5cd" visible="false">
                      <font>
                         <Font name="Segoe UI Bold" size="15.0" />
                      </font>

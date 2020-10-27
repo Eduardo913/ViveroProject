@@ -24,6 +24,8 @@ public class DaoFotografia {
 	       Session session = factory.openSession();
 	       Criteria crit = session.createCriteria(Fotografia.class);
 	       List fotografia = crit.list();
+	       crit.list().toString();
+	       session.close();
 	       return fotografia;
 	   }
 	
