@@ -6,6 +6,9 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
+
 import com.Base.Vivero.Entity.Historial;
 import com.Base.Vivero.Entity.Producto;
 import com.Base.Vivero.Model.ConexionHibernate;
@@ -52,5 +55,15 @@ public class DaoHistorial {
 	     session.getTransaction().commit();
 	     session.close();
 	}
+	
+	public List getProductsHistorial() {
+			Session session = factory.openSession();
+	       Criteria crit = session.createCriteria(Historial.class);
+	       crit.setProjection(Projections.groupProperty("Producto"));
+	       List Historial = (List<Historial>)crit.list();
+	       
+	       return Historial;
+
+    }
 	 
 }
