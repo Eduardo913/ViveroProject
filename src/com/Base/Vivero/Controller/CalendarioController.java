@@ -371,7 +371,7 @@ public class CalendarioController implements Initializable{
 
    @FXML
    void OnMouseClickedVIstaFotografia(MouseEvent event) {
-	   cambiarScene("");
+	   cambiarScene("Fotograias");
    }
 
    @FXML

@@ -49,7 +49,7 @@ public class Historial {
 
 	@Override
 	public String toString() {
-		return "Historial [id=" + id + ", producto=" + producto + ", fecha=" + fecha + "]";
+		return producto.toString();
 	}
 	
 	public List<Fotografia> getFotografiaList() {

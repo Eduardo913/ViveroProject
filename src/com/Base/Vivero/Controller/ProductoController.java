@@ -236,7 +236,7 @@ public class ProductoController implements Initializable{
 
 	   @FXML
 	   void OnMouseClickedVIstaFotografia(MouseEvent event) {
-		   cambiarScene("");
+		   cambiarScene("Fotografias");
 	   }
 
 	   @FXML
